@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Contact>
+
+@{
+    ViewData["Title"] = "Contacts";
+}
+
+<div class="text-center">
+    <table>
+            <tr>
+                <th>
+                    <a asp-action="Index" asp-route-sortOrder=@Html.DisplayNameFor(model => model.Id) asp-route-currentSortOrder=@ViewData["CurrentSortOrder"]>@Html.DisplayNameFor(model => model.Id)</a>
+                </th>
+                <th>
+                    <a asp-action="Index" asp-route-sortOrder=@Html.DisplayNameFor(model => model.Name) asp-route-currentSortOrder=@ViewData["CurrentSortOrder"]>@Html.DisplayNameFor(model => model.Name)</a>
+                </th>
+                <th>
+                    <a asp-action="Index" asp-route-sortOrder=@Html.DisplayNameFor(model => model.City) asp-route-currentSortOrder=@ViewData["CurrentSortOrder"]>@Html.DisplayNameFor(model => model.City)</a>
+                </th>
+                <th>
+                    <a asp-action="Index" asp-route-sortOrder=@Html.DisplayNameFor(model => model.State) asp-route-currentSortOrder=@ViewData["CurrentSortOrder"]>@Html.DisplayNameFor(model => model.State)</a>
+                </th>
+                <th>
+                    <a asp-action="Index" asp-route-sortOrder=@Html.DisplayNameFor(model => model.Phone) asp-route-currentSortOrder=@ViewData["CurrentSortOrder"]>@Html.DisplayNameFor(model => model.Phone)</a>
+                </th>
+            </tr>
+            @foreach(var contact in Model)
+            {
+                <tr>
+                    <td>
+                        @contact.Id
+                    </td>
+                    <td>
+                        @contact.Name
+                    </td>
+                    <td>
+                        @contact.City
+                    </td>
+                    <td>
+                        @contact.State
+                    </td>
+                     <td>
+                        @contact.Phone
+                    </td>
+                </tr>
+            }
+    </table>
+</div>
